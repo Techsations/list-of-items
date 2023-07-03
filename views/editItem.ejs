@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="mx-auto container row">
+        <div class="mx-auto col-sm-8 shadow p-4">
+            <form action="/editItem", method="post">
+                <h1 class="text-center text-muted display-6">Edit Item</h1>
+                <input type="text" value="<%= item %>" placeholder="item" name="item" id="" class="form-control my-3">
+                <input type="number" value="<%= amount %>" placeholder="amount" name="amount" id="" class="form-control my-3">
+                <input type="number" value="<%= quantity %>" placeholder="quantity" name="quantity" id="" class="form-control my-3">
+                <input type="hidden" value="<%= _id %>" placeholder="subtotal" name="_id" id="" class="form-control my-3">
+                <button class="btn btn-success">Modify Changes</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

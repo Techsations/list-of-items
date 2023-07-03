@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+    <div class="mx-auto container row">
+        <div class="mx-auto col-sm-8 shadow p-4">
+            <form action="/itemList", method="post">
+                <h1 class="text-center text-muted display-6">Item List</h1>
+                <input type="text" placeholder="item"  name="item" id="" class="form-control my-3">
+                <input type="number" placeholder="amount" name="amount" id="" class="form-control my-3">
+                <input type="hidden" placeholder="subtotal" name="subtotal" id="" class="form-control my-3">
+                <input type="number" placeholder="quantity" name="quantity" id="" class="form-control my-3">
+                <div class="d-flex align-items-center justify-content-between">
+                    <button class="btn btn-success">Add Item</button>
+                    <h6>Total:₦<span><%= total %></span></h6>
+                </div>
+            </form>
+        </div>
+        <% for( let i = 0; i < itemList.length; i++ ) { %>
+            <div class="mx-auto d-flex col-sm-8 shadow-sm justify-content-evenly py-3 my-2">
+                <p>Item: <%= itemList[i].item %></p>
+                <p>Amount: <%= itemList[i].amount %></p>
+                <p>Quantity: <%= itemList[i].quantity %></p>
+                <p>SubTotal: <%= itemList[i].subtotal %></p>
+                <form action="/editItem/<%= itemList[i]._id %>", method="get">
+                    <button class="btn btn-primary">Edit</button>
+                </form>
+                <form action="/deleteItem", method="post">
+                    <input type="hidden" name="index" value="<%= itemList[i]._id %>">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
